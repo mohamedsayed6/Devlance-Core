@@ -389,3 +389,29 @@ TestResults/
 *.testsettings
 *.vspscc
 *.vssscc
+
+# Ignore build and debug output directories
+bin/
+obj/
+
+# Ignore Visual Studio temporary files
+*.user
+*.suo
+*.log
+*.lce
+*.cache
+*.pdb
+*.ilk
+*.opendb
+*.VC.db
+
+# Ignore Visual Studio Code workspace storage
+.vscode/
+
+# Ignore auto-generated files from testing and debugging
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.vspscc
+*.vssscc

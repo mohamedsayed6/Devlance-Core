@@ -30,3 +30,4 @@ TestResults/
 *.vspscc
 *.vssscc
 Debug/
+/Devlance-Core/Controllers/WeatherForecastController.cs

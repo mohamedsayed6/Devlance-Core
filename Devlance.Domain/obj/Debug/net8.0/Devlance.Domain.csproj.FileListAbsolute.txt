@@ -1,0 +1,12 @@
+D:\Devlance\Devlance.Domain\bin\Debug\net8.0\Devlance.Domain.deps.json
+D:\Devlance\Devlance.Domain\bin\Debug\net8.0\Devlance.Domain.dll
+D:\Devlance\Devlance.Domain\bin\Debug\net8.0\Devlance.Domain.pdb
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.csproj.AssemblyReference.cache
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.AssemblyInfoInputs.cache
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.AssemblyInfo.cs
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.csproj.CoreCompileInputs.cache
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.dll
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\refint\Devlance.Domain.dll
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\Devlance.Domain.pdb
+D:\Devlance\Devlance.Domain\obj\Debug\net8.0\ref\Devlance.Domain.dll

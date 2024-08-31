@@ -1,0 +1,11 @@
+D:\Devlance\Devlance.Application\bin\Debug\net8.0\Devlance.Application.deps.json
+D:\Devlance\Devlance.Application\bin\Debug\net8.0\Devlance.Application.dll
+D:\Devlance\Devlance.Application\bin\Debug\net8.0\Devlance.Application.pdb
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.AssemblyInfoInputs.cache
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.AssemblyInfo.cs
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.csproj.CoreCompileInputs.cache
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.dll
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\refint\Devlance.Application.dll
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\Devlance.Application.pdb
+D:\Devlance\Devlance.Application\obj\Debug\net8.0\ref\Devlance.Application.dll

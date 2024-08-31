@@ -29,3 +29,4 @@ TestResults/
 *.testsettings
 *.vspscc
 *.vssscc
+Debug/

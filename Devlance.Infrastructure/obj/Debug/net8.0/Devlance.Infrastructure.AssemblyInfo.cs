@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Devlance.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24cd0691503257ad40e74bcf67d02f2b45c423e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd2af6e5e6c24e0f9e57b71b77c2e5a5c30fbde0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Devlance.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Devlance.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

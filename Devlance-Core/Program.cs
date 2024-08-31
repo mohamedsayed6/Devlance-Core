@@ -1,6 +1,7 @@
 
 using Devlance.Domain.Models;
 using Devlance.Infrastructure.DbContext;
+using Devlance.Infrastructure.SystemStartupData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +35,8 @@ namespace Devlance_Core
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            //Seed Data
+            app.UseData();
 
             app.UseHttpsRedirection();
 

@@ -1,6 +1,0 @@
-@Devlance_Core_HostAddress = http://localhost:5029
-
-GET {{Devlance_Core_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

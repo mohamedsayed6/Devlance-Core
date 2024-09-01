@@ -4,9 +4,12 @@
 
 /Devlance-Core/Controllers/WeatherForecastController.cs
 
-# Ignore build and debug output directories
+# Ignore build output directories
 bin/
 obj/
+Debug/
+Release/
+out/
 
 # Ignore Visual Studio temporary files
 *.user
@@ -29,5 +32,21 @@ TestResults/
 *.testsettings
 *.vspscc
 *.vssscc
-Debug/
-/Devlance-Core/Controllers/WeatherForecastController.cs
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+
+# Ignore additional build artifacts
+*.dll
+*.exe
+*.app
+*.dSYM/
+*.ipa
+*.js
+*.log
+*.zip
+
+# Ignore Rider / Resharper files
+.idea/
+*.DotSettings.user

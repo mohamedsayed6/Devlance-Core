@@ -11,7 +11,5 @@ namespace Devlance.Domain.Models
     {
 
 
-
-
     }
 }

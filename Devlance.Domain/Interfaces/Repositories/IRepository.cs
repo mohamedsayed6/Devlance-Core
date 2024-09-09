@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Devlance.Domain.Interfaces.Repositories
 {
-    public interface IRepository<TEntity,TKey>
+    public interface IRepository<T,TKey> where T : class
     {
-        TEntity Find(TKey id);
+        T Find(TKey id);
 
-        int Add(TEntity entity);
-        int Update(TEntity entity);
-        int Delete(TEntity entity);
-        IQueryable<TEntity> GetAll();
-        IQueryable<TEntity> GetList(Expression<Func<TEntity, bool>> expression);
+        int Add(T entity);
+        int Update(T entity);
+        int Delete(T entity);
+        IQueryable<T> GetAll();
+        IQueryable<T> GetList(Expression<Func<T, bool>> expression);
 
 
     }

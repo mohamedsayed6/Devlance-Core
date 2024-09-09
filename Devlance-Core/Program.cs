@@ -1,9 +1,14 @@
 
+using Devlance.Application.Services;
+using Devlance.Domain.Interfaces.Repositories;
+using Devlance.Domain.Interfaces.Services;
 using Devlance.Domain.Models;
 using Devlance.Infrastructure.DbContext;
+using Devlance.Infrastructure.Repositories;
 using Devlance.Infrastructure.SystemStartupData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Devlance_Core
 {
@@ -26,6 +31,14 @@ namespace Devlance_Core
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             }
             );
+
+            //Register Repository
+            builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            builder.Services.AddScoped(typeof(IFreelancerProfileRepository), typeof(FreelancerProfileRepository));
+
+            //Register Services
+            builder.Services.AddScoped<IFreelancerProfileService,FreelancerProfileService>();
+            
 
             var app = builder.Build();
 

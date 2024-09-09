@@ -36,6 +36,7 @@ namespace Devlance_Core
             builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
             builder.Services.AddScoped(typeof(IFreelancerProfileRepository), typeof(FreelancerProfileRepository));
 
+
             //Register Services
             builder.Services.AddScoped<IFreelancerProfileService,FreelancerProfileService>();
             

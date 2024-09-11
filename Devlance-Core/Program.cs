@@ -1,4 +1,3 @@
-
 using Devlance.Application.Services;
 using Devlance.Domain.Interfaces.Repositories;
 using Devlance.Domain.Interfaces.Services;
@@ -6,9 +5,11 @@ using Devlance.Domain.Models;
 using Devlance.Infrastructure.DbContext;
 using Devlance.Infrastructure.Repositories;
 using Devlance.Infrastructure.SystemStartupData;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Devlance_Core
 {
@@ -32,13 +33,37 @@ namespace Devlance_Core
             }
             );
 
+            /*JWT Configuration*/
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(o =>
+            {
+                o.RequireHttpsMetadata = false;
+                o.SaveToken = false;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = builder.Configuration["JWT:Issuer"],
+                    ValidAudience = builder.Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+                };
+            });
+
+
             //Register Repository
-            builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             builder.Services.AddScoped(typeof(IFreelancerProfileRepository), typeof(FreelancerProfileRepository));
 
 
             //Register Services
             builder.Services.AddScoped<IFreelancerProfileService,FreelancerProfileService>();
+            builder.Services.AddScoped<IAuthService,AuthService>();
             
 
             var app = builder.Build();
@@ -49,13 +74,14 @@ namespace Devlance_Core
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            //Seed Data
+            //Seed Data for updating database with un applied migrations
             app.UseData();
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

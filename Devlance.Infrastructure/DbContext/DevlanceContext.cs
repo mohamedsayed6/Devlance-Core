@@ -1,9 +1,11 @@
 ﻿using Devlance.Domain.Models;
 using Devlance.Infrastructure.Configurations;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,31 @@ namespace Devlance.Infrastructure.DbContext
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new FreelancerProfileConfigurations());
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "admin",
+                    NormalizedName = "ADMIN",
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
+                },
+                new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "freelancer",
+                    NormalizedName = "FREELANCER",
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
+                },
+                new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "client",
+                    NormalizedName = "CLIENT",
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
+                }
+            );
         }
     }
 }
+

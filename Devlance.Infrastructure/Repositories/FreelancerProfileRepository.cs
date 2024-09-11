@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Devlance.Infrastructure.Repositories
 {
-    public class FreelancerProfileRepository : Repository<FreelancerProfile, long>, IFreelancerProfileRepository
+    public class FreelancerProfileRepository : GenericRepository<FreelancerProfile, long>, IFreelancerProfileRepository
     {
         public FreelancerProfileRepository(DevlanceContext dbContext) : base(dbContext)
         {

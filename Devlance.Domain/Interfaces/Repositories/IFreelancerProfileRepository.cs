@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Devlance.Domain.Interfaces.Repositories
 {
-    public interface IFreelancerProfileRepository:IRepository<FreelancerProfile,long>
+    public interface IFreelancerProfileRepository:IGenericRepository<FreelancerProfile,long>
     {
     }
 }

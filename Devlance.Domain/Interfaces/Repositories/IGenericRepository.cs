@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Devlance.Domain.Interfaces.Repositories
 {
-    public interface IRepository<T,TKey> where T : class
+    public interface IGenericRepository<T,TKey> where T : class
     {
         T Find(TKey id);
 

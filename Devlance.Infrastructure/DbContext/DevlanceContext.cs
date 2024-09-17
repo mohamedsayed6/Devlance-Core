@@ -19,8 +19,6 @@ namespace Devlance.Infrastructure.DbContext
         {
 
         }
-
-        public DbSet<FreelancerProfile> FreelancerProfiles { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -52,6 +50,11 @@ namespace Devlance.Infrastructure.DbContext
                 }
             );
         }
-    }
+	
+        //Tables
+
+		public DbSet<FreelancerProfile> FreelancerProfiles { get; set; }
+	
+	}
 }
 

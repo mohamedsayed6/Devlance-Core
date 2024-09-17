@@ -1,4 +1,5 @@
 using Devlance.Application.Services;
+using Devlance.Domain.Helpers;
 using Devlance.Domain.Interfaces.Repositories;
 using Devlance.Domain.Interfaces.Services;
 using Devlance.Domain.Models;
@@ -8,6 +9,7 @@ using Devlance.Infrastructure.SystemStartupData;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -30,11 +32,13 @@ namespace Devlance_Core
             builder.Services.AddDbContext<DevlanceContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
-            }
-            );
+			}
+			);
 
-            /*JWT Configuration*/
-            builder.Services.AddAuthentication(options =>
+
+			/*JWT Configuration*/
+			builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
+			builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

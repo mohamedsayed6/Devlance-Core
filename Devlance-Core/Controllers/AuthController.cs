@@ -16,7 +16,7 @@ namespace Devlance_Core.Controllers
             _authService = authService;
         }
 
-        [HttpPost("register")]
+        [HttpPost("RegisterAsync")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterModel model)
         {
             if (!ModelState.IsValid)
@@ -29,5 +29,33 @@ namespace Devlance_Core.Controllers
 
             return Ok(result);
         }
-    }
+
+		[HttpPost("LoginAsync")]
+		public async Task<IActionResult> LoginAsync([FromBody] TokenRequestModel model)
+		{
+			if (!ModelState.IsValid)
+				return BadRequest(ModelState);
+
+			var result = await _authService.LoginAsync(model);
+
+			if (!result.IsAuthenticated)
+				return BadRequest(result.Message);
+
+			return Ok(result);
+		}
+
+		[HttpPost("AssignUserToRoleAsync")]
+		public async Task<IActionResult> AssignUserToRoleAsync([FromBody] AssignUserToRoleModel model)
+		{
+			if (!ModelState.IsValid)
+				return BadRequest(ModelState);
+
+			var result = await _authService.AssignUserToRoleAsync(model);
+
+			if (!string.IsNullOrEmpty(result))
+				return BadRequest(result);
+
+			return Ok(model);
+		}
+	}
 }

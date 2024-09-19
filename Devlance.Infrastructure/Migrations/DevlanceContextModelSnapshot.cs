@@ -34,20 +34,17 @@ namespace Devlance.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bio")
-                        .IsRequired()
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CardHolderName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CardNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -55,7 +52,6 @@ namespace Devlance.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cvv")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -65,10 +61,10 @@ namespace Devlance.Infrastructure.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ExpirationMonth")
+                    b.Property<int?>("ExpirationMonth")
                         .HasColumnType("int");
 
-                    b.Property<int>("ExpirationYear")
+                    b.Property<int?>("ExpirationYear")
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
@@ -76,7 +72,7 @@ namespace Devlance.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -94,7 +90,6 @@ namespace Devlance.Infrastructure.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NationalIdPhotoName")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -126,7 +121,6 @@ namespace Devlance.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("UserPhotoName")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -215,22 +209,22 @@ namespace Devlance.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6ff9ffe9-9070-4422-81f3-7706cd9a6868",
-                            ConcurrencyStamp = "4ac13237-c888-4448-b8ff-eb516d379024",
+                            Id = "b5f8f881-4759-4ebe-9a35-90ead8dc69f6",
+                            ConcurrencyStamp = "24a75c3c-2931-4a3d-877f-df6545039486",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2c73a8df-6a01-491f-bd42-d5bffb54cdf5",
-                            ConcurrencyStamp = "d24b3e7b-911b-4d40-817a-7b020240e473",
+                            Id = "c9af530f-fa05-4ccf-8f92-9bdf1f2b88c6",
+                            ConcurrencyStamp = "3054ef44-ed22-4708-8aeb-ff2b5b3d4cb5",
                             Name = "freelancer",
                             NormalizedName = "FREELANCER"
                         },
                         new
                         {
-                            Id = "2328d145-661f-4ff9-8f1b-6c8ad58c46b4",
-                            ConcurrencyStamp = "21495c51-b64b-4991-8f37-3cb5d790160c",
+                            Id = "9b3d19a2-73c0-4b25-9f00-803c1473011e",
+                            ConcurrencyStamp = "cb478a72-28e4-445d-932e-3b5fd3422852",
                             Name = "client",
                             NormalizedName = "CLIENT"
                         });

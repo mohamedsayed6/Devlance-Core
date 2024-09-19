@@ -44,8 +44,9 @@ namespace Devlance.Application.Services
 			{
 				UserName = model.Username,
 				Email = model.Email,
-				/*                FirstName = model.FirstName,
-								LastName = model.LastName*/
+				FirstName = model.FirstName,
+				LastName = model.LastName,
+				AccountType= model.Role,
 			};
 
 			var result = await _userManager.CreateAsync(user, model.Password);

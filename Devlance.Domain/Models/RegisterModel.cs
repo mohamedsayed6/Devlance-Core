@@ -10,11 +10,11 @@ namespace Devlance.Domain.Models
 {
     public class RegisterModel
     {
-/*        [Required, StringLength(100)]
+        [Required, StringLength(100)]
         public string FirstName { get; set; }
 
         [Required, StringLength(100)]
-        public string LastName { get; set; }*/
+        public string LastName { get; set; }
 
         [Required, StringLength(50)]
         public string Username { get; set; }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devlance-Core", "Devlance-Core.csproj", "{FF16E4BC-5516-47C8-A708-E4F28DD76028}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devlance-Core", "Devlance-Core.csproj", "{FF16E4BC-5516-47C8-A708-E4F28DD76028}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A486E1DC-414F-4601-B645-E6E1B9C360D3}"
 EndProject
@@ -13,11 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{652B5A41-0758-453F-B2EC-F7C95AA5BE49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devlance.Domain", "..\Devlance.Domain\Devlance.Domain.csproj", "{84ABFF8B-BFF9-4773-9FBF-D1ADE57C5149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devlance.Domain", "..\Devlance.Domain\Devlance.Domain.csproj", "{84ABFF8B-BFF9-4773-9FBF-D1ADE57C5149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devlance.Infrastructure", "..\Devlance.Infrastructure\Devlance.Infrastructure.csproj", "{57EB6117-C97B-4F84-8D6D-69CD25366699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devlance.Infrastructure", "..\Devlance.Infrastructure\Devlance.Infrastructure.csproj", "{57EB6117-C97B-4F84-8D6D-69CD25366699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devlance.Application", "..\Devlance.Application\Devlance.Application.csproj", "{0B6BBF24-44C8-4CAC-A813-CC7374160F8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devlance.Application", "..\Devlance.Application\Devlance.Application.csproj", "{0B6BBF24-44C8-4CAC-A813-CC7374160F8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Devlance.Infrastructure.Repositories
 {
-    public class Repository<T,TKey> : IRepository<T,TKey> where T:class
+    public class GenericRepository<T,TKey> : IGenericRepository<T,TKey> where T:class
     {
         private readonly DevlanceContext _dbContext;
-        public Repository(DevlanceContext dbContext )
+        public GenericRepository(DevlanceContext dbContext )
         {
             _dbContext = dbContext;
         }

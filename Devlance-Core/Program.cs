@@ -35,9 +35,11 @@ namespace Devlance_Core
 			}
 			);
 
+            /*Configuration For AppSettings Class With used to get fixed data from appsettings.json */
+            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
-			/*JWT Configuration*/
-			builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
+            /*JWT Configuration*/
+            builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 			builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

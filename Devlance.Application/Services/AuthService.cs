@@ -1,6 +1,8 @@
-﻿using Devlance.Domain.Enums;
+﻿using Devlance.Domain.DTOs.User;
+using Devlance.Domain.Enums;
 using Devlance.Domain.Helpers;
 using Devlance.Domain.Interfaces.Services;
+using Devlance.Domain.Mappers;
 using Devlance.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -32,55 +34,69 @@ namespace Devlance.Application.Services
 			_jwt = jwt.Value;
 		}
 
-		public async Task<AuthModel> RegisterAsync(RegisterModel model)
+		public async Task<Response<AuthModel>> RegisterAsync(RegisterModel model)
 		{
-			if (await _userManager.FindByEmailAsync(model.Email) is not null)
-				return new AuthModel { Message = "Email is already registered!" };
-
-			if (await _userManager.FindByNameAsync(model.Username) is not null)
-				return new AuthModel { Message = "Username is already registered!" };
-
-			var user = new ApplicationUser
+			try
 			{
-				UserName = model.Username,
-				Email = model.Email,
-				FirstName = model.FirstName,
-				LastName = model.LastName,
-				AccountType= model.Role,
-			};
+				var audd = model.ToAuthModel();
 
-			var result = await _userManager.CreateAsync(user, model.Password);
 
-			if (!result.Succeeded)
-			{
-				var errors = string.Empty;
+                if (await _userManager.FindByEmailAsync(model.Email) is not null)
+					throw new Exception("Email is already registered!");
+					//return new Response<AuthModel> { Message = "Email is already registered!",IsSuucceded=false };
 
-				foreach (var error in result.Errors)
-					errors += $"{error.Description},";
+				if (await _userManager.FindByNameAsync(model.Username) is not null)
+					return new Response<AuthModel> { Message = "Username is already registered!", IsSuucceded = false };
 
-				return new AuthModel { Message = errors };
+				var user = new ApplicationUser
+				{
+					UserName = model.Username,
+					Email = model.Email,
+					FirstName = model.FirstName,
+					LastName = model.LastName,
+					AccountType = model.Role,
+				};
+
+				var result = await _userManager.CreateAsync(user, model.Password);
+
+				if (!result.Succeeded)
+				{
+					var errors = string.Empty;
+
+					foreach (var error in result.Errors)
+						errors += $"{error.Description},";
+
+					return new Response<AuthModel> { Error = errors,IsSuucceded=false };
+				}
+
+				if (model.Role == UserRolesEnum.FreeLancer)
+				{
+					await _userManager.AddToRoleAsync(user, "freelancer");
+				}
+				else if (model.Role == UserRolesEnum.Client)
+				{
+					await _userManager.AddToRoleAsync(user, "client");
+				}
+				
+
+				var jwtSecurityToken = await CreateJwtToken(user);
+				var authModel= new AuthModel
+                {
+                    Email = user.Email,
+                    ExpiresOn = jwtSecurityToken.ValidTo,
+                    IsAuthenticated = true,
+                    Role = model.Role,
+                    Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                    Username = user.UserName
+                };
+				return new Response<AuthModel>(authModel);
 			}
-
-			if (model.Role == UserRolesEnum.FreeLancer)
+			catch (Exception ex) 
 			{
-				await _userManager.AddToRoleAsync(user, "freelancer");
+				
+				return new Response<AuthModel> {IsSuucceded=false,Message="Error!!" };	
+			
 			}
-			else if (model.Role == UserRolesEnum.Client)
-			{
-				await _userManager.AddToRoleAsync(user, "client");
-			}
-
-			var jwtSecurityToken = await CreateJwtToken(user);
-
-			return new AuthModel
-			{
-				Email = user.Email,
-				ExpiresOn = jwtSecurityToken.ValidTo,
-				IsAuthenticated = true,
-				Role = model.Role,
-				Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-				Username = user.UserName
-			};
 		}
 		public async Task<AuthModel> LoginAsync(TokenRequestModel model)
 		{

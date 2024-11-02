@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devlance.Domain.Models
+namespace Devlance.Domain.DTOs.User
 {
     public class AuthModel
     {

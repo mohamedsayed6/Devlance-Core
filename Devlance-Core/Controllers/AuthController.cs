@@ -1,6 +1,7 @@
-﻿using Devlance.Domain.Interfaces.Services;
-using Devlance.Domain.Models;
+﻿using Devlance.Domain.DTOs.User;
+using Devlance.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Devlance_Core.Controllers
@@ -19,15 +20,20 @@ namespace Devlance_Core.Controllers
         [HttpPost("RegisterAsync")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterModel model)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+			try
+			{
+				if (!ModelState.IsValid)
+					return BadRequest(ModelState);
 
-            var result = await _authService.RegisterAsync(model);
+				var result = await _authService.RegisterAsync(model);
 
-            if (!result.IsAuthenticated)
-                return BadRequest(result.Message);
+				return Ok(result);
+            }
+            catch (Exception ex) 
+			{
+                return BadRequest(ex.Message);
 
-            return Ok(result);
+            }
         }
 
 		[HttpPost("LoginAsync")]
